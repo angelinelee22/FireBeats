@@ -1,3 +1,21 @@
+body {
+  background: linear-gradient(-5deg, #ff4136, #ff851b, #ffdc00) !important;
+  background-size: 400% 400%;
+  animation: gradient 7s ease infinite !important;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 audio {
   position: fixed;
   left: 10px;
@@ -28,8 +46,27 @@ input {
   z-index: 100;
 }
 
-.test-button {
+.generate-button {
+  visibility: hidden;
+}
+
+#play-pause {
   position: absolute;
-  top: 40%;
-  z-index: 5;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+h1 {
+  display: inline-block;
+  padding: 0.3em;
+  font-family: 'Megrim', cursive;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  color: white;
+  border: 0.075em solid white;
 }
