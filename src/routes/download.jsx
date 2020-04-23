@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
-import '../components/components.css';
+import './download.css';
+import * as mm from '@magenta/music';
+
+const url =
+  'https://storage.googleapis.com/magentadata/js/checkpoints/music_vae/mel_2bar_small';
+
+const model = new mm.MusicVAE(url);
+const player = new mm.Player();
 
 class Download extends Component {
   constructor(props) {
     super(props);
     this.onChange = this.onChange.bind(this);
   }
+
+  handleClick = () => {
+    player.resumeContext(); // enable audio
+    model.sample(1).then((samples) => player.start(samples[0], 80)); // 80 is temp I think, samples[0] is lstmOutput
+  };
 
   onChange(e) {
     e.preventDefault();
@@ -67,26 +79,23 @@ class Download extends Component {
     audioPlayer.play();
     renderFrame();
   }
-  // componentDidMount() {
-  // const script = document.createElement('script');
-
-  // script.src = '../components/visualizer.js';
-  // script.async = true;
-  //
-  // document.body.appendChild(script);
-  // }
 
   render() {
     return (
-      <div id="content">
-        <input
-          type="file"
-          style={{ top: 10, left: 10, zIndex: 100 }}
-          accept="audio/*"
-          onChange={this.onChange}
-        />
-        <canvas id="audio-canvas" style={{ left: 0, top: 0, flex: 1 }}></canvas>
-        <audio id="audio" controls></audio>
+      <div>
+        <div id="content">
+          <input
+            id="the-file"
+            type="file"
+            accept="audio/*"
+            onChange={this.onChange}
+          />
+          <button className="test-button" onClick={this.handleClick}>
+            Test
+          </button>
+          <canvas id="audio-canvas"></canvas>
+          <audio id="audio" controls></audio>
+        </div>
       </div>
     );
   }
