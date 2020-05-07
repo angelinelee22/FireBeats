@@ -1,10 +1,4 @@
-body {
-  background: linear-gradient(-5deg, #ff4136, #ff851b, #ffdc00) !important;
-  background-size: 400% 400%;
-  animation: gradient 7s ease infinite !important;
-}
-
-@keyframes gradient {
+/* @keyframes gradient {
   0% {
     background-position: 0% 50%;
   }
@@ -69,4 +63,4 @@ h1 {
   transform: translate(-50%, -50%);
   color: white;
   border: 0.075em solid white;
-}
+} */

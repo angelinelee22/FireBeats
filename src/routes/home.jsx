@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './home.css';
+import '../components/styles.css';
 
 class Home extends Component {
   handleClick = () => {
@@ -8,18 +8,13 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="home-border">
-        <div className="text-align">
-          <h1 className="text-lg-left font-weight-bold title">FIRE BEATS</h1>
+      <div className="center align-middle">
+        <div>
+          <h1>FIRE BEATS</h1>
           <p>Create some fire beats with the click of a button.</p>
-        </div>
-        <div className="title-button">
-          <button
-            className="btn btn-outline-light m-2 btn-lg"
-            onClick={this.handleClick}
-          >
-            Generate a Beat
-          </button>
+          <div>
+            <button onClick={this.handleClick}>Generate a Beat</button>
+          </div>
         </div>
       </div>
     );
