@@ -1,5 +1,5 @@
 import React from 'react';
-import Download from './routes/download';
+import Download from './routes/newdownload';
 import Home from './routes/home';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
