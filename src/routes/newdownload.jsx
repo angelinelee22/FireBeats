@@ -58,19 +58,17 @@ class Download extends Component {
 
   handleGenerate = () => {
     player.stop();
+    mm.Player.tone.context.resume();
     count += 1;
     return model.sample(1).then((samples) => {
-      player.start(samples[0], this.state.tempo);
       midi = samples[0];
+      player.start(midi, this.state.tempo);
       this.setState({ isLoading: false });
     });
   };
 
   handleDownload = () => {
-    saveAs(
-      new Blob([mm.sequenceProtoToMidi(midi)], { type: 'audio/midi' }),
-      'fire-beats.mid'
-    );
+    saveAs(new File([mm.sequenceProtoToMidi(midi)], 'fire-beats.mid'));
   };
 
   render() {
